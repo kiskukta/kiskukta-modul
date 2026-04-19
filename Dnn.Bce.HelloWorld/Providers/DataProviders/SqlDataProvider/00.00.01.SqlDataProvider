@@ -8,30 +8,26 @@
 /*****                                                  *****/
 /************************************************************/
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}Dnn_Bce_HelloWorld_Items]') AND type in (N'U'))
-DROP TABLE {databaseOwner}[{objectQualifier}Dnn_Bce_HelloWorld_Items]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}KK_UserRecipePosts]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}KK_UserRecipePosts]
 GO
 
-CREATE TABLE {databaseOwner}{objectQualifier}Dnn_Bce_HelloWorld_Items
+CREATE TABLE {databaseOwner}{objectQualifier}KK_UserRecipePosts
     (
-    ItemId int NOT NULL IDENTITY (1, 1),
-    ItemName nvarchar(MAX) NOT NULL,
-    ItemDescription nvarchar(MAX) NOT NULL,
-    AssignedUserId int NULL,
-    ModuleId int NOT NULL,
-    CreatedOnDate datetime NOT NULL,
-    CreatedByUserId int NOT NULL,
-    LastModifiedOnDate datetime NOT NULL,
-    LastModifiedByUserId int NOT NULL
-    )  ON [PRIMARY]
-     TEXTIMAGE_ON [PRIMARY]
+       PostID int NOT NULL IDENTITY (1,1),
+        CommentText nvarchar(1000) NOT NULL,
+        ImagePath nvarchar(300) NOT NULL,
+        CreatedByUserID int NULL,
+        CreatedOnDate datetime NULL,
+        Status nvarchar(50) NOT NULL
+    )
 GO
 
 
-ALTER TABLE {databaseOwner}{objectQualifier}Dnn_Bce_HelloWorld_Items ADD CONSTRAINT
-    PK_{objectQualifier}Dnn_Bce_HelloWorld_Items PRIMARY KEY CLUSTERED 
+ALTER TABLE {databaseOwner}{objectQualifier}KK_UserRecipePosts ADD CONSTRAINT
+    PK_{objectQualifier}KK_UserRecipePosts PRIMARY KEY CLUSTERED 
     (
-    ItemId
+     PostID
     ) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 
 GO

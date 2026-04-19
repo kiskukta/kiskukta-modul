@@ -1,34 +1,14 @@
-﻿
-@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IEnumerable< Bce.Dnn.Dnn.Bce.HelloWorld.Models.Item >>
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IEnumerable<Bce.Dnn.Dnn.Bce.HelloWorld.Models.Item>>
 
-    @using System.Text.RegularExpressions
-    @using DotNetNuke.Web.Mvc.Helpers
+<div id="Items-@Dnn.ModuleContext.ModuleId">
 
-
-    <div id="Items-@Dnn.ModuleContext.ModuleId">
-        @if (Model.Count() == 0)
-        {
-            <p>@Dnn.LocalizeString("NoItems")</p>
-        }
-        else
-        {
-            <ul class="tm_tl">
-                @foreach (var item in Model)
-                {
-                    <li class="tm_t">
-                        <h3>@item.ItemName</h3>
-                        <div class="tm_td">@item.ItemDescription</div>
-                        @{
-                            if (Dnn.ModuleContext.IsEditable)
-                            {
-                                <div>
-                                    <a href="@Url.Action("Edit", "Item", new {ctl = "Edit", itemId = item.ItemId})">@Dnn.LocalizeString("EditItem")</a>
-                                    <a href="@Url.Action("Delete", "Item", new {itemId = item.ItemId})">@Dnn.LocalizeString("DeleteItem")</a>
-                                </div>
-                            }
-                        }
-                    </li>
-                }
-            </ul>
-        }
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #dee2e6;">
+        <h1 style="color: #0056b3; margin-top: 0;">Kiskukta modul</h1>
+        <p>A modul sikeresen betöltött.</p>
     </div>
+
+    <hr />
+
+    <p>Még nincs feltöltött tartalom.</p>
+
+</div>
